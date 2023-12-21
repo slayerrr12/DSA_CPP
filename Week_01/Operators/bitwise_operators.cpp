@@ -18,9 +18,9 @@ int main()
     cout << (~a) << endl; // -4
     
 
-    a = 9;
+    a =1000;
     cout << (a<<4 )<< endl; //right shift 144
-    cout << (a>>10) << endl; //left shift 0
+    cout << (a>>4) << endl; //left shift 0
 
     
 

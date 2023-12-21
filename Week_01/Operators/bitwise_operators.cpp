@@ -9,18 +9,21 @@ using namespace std;
 int main()
 {
 
-    int  a = 10;
+    int  a = 11;
     int b = 4;
 
     cout << (a&b) << endl; // 2
     cout << (a | b )<< endl ; //3
     cout << (a ^ b) << endl; //1
     cout << (~a) << endl; // -4
-    
+ 
 
     a =1000;
+    unsigned int a1 = -1000;
     cout << (a<<4 )<< endl; //right shift 144
     cout << (a>>4) << endl; //left shift 0
+    cout << (a1) << endl; //left shift 0
+
 
     
 

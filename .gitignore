@@ -1,5 +1,5 @@
 # Ignore compiled executables
-*.exe
+**/*.exe
 
 # Ignore temporary code runner files
 /.vscode/

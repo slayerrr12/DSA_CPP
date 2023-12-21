@@ -46,6 +46,7 @@ int main()
     // {
     //     cout << " odd" << endl;
     // }
-
+    // why use bitwise operations because they are faster
+    // and they are used in competitive programming
     return 0;
 }

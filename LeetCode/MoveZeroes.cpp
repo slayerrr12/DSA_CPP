@@ -1,81 +1,57 @@
-#include <bits/stdc++.h>
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <string>
-#include <unordered_map>
-#include <unordered_set>
-#include <map>
-
-using namespace std;
-
-// Function to sort an array of integers containing both odd and even numbers
-void sortOddAndEvens(vector<int> &nums)
+class Solution
 {
-    int n = nums.size();
-    int i = 0; // Initialize the left pointer
-    int j = n - 1; // Initialize the right pointer
-
-    // Continue sorting until the left pointer crosses the right pointer
-    while (i < j)
+public:
+    void moveZeroes(vector<int> &num)
     {
-        // Check if both elements are even, move the left pointer to the right
-        if ((nums[i] & 1) == 0 && (nums[j] & 1) == 0)
+        // If the vector has only one element, no need to perform any operations
+        if (num.size() == 1)
         {
-            i++;
-            continue;
+            return;
         }
 
-        // Check if both elements are odd, move the right pointer to the left
-        if ((nums[i] & 1) != 0 && (nums[j] & 1) != 0)
-        {
-            j--;
-            continue;
-        }
+        // Initialize two indices, z for the first zero and nz for the first non-zero
+        int z = 0;
+        int nz = 1;
 
-        // Swap if the left element is even and the right element is odd
-        if ((nums[i] & 1) == 0 && (nums[j] & 1) != 0)
+        // Iterate through the vector
+        while (nz < num.size())
         {
-            i++;
-            j--;
-            continue;
-        }
+            // If both elements at indices z and nz are zero, move to the next non-zero index
+            if (num[z] == 0 && num[nz] == 0)
+            {
+                nz++;
+                continue;
+            }
 
-        // Swap if the left element is odd and the right element is even
-        if ((nums[i] & 1) != 0 && (nums[j] & 1) == 0)
-        {
-            int temp = nums[i];
-            nums[i] = nums[j];
-            nums[j] = temp;
-            i++;
-            j--;
-            continue;
+            // If the element at index z is zero and the element at index nz is non-zero
+            if (num[z] == 0 && num[nz] != 0)
+            {
+                // Swap the zero and non-zero elements
+                int temp = num[z];
+                num[z] = num[nz];
+                num[nz] = temp;
+                // Move to the next zero and non-zero indices
+                z++;
+                nz++;
+                continue;
+            }
+
+            // If both elements at indices z and nz are non-zero, move to the next indices
+            if (num[z] != 0 && num[nz] != 0)
+            {
+                z++;
+                nz++;
+                continue;
+            }
+
+            // If the element at index z is non-zero and the element at index nz is zero
+            if (num[z] != 0 && num[nz] == 0)
+            {
+                // Move to the next zero and non-zero indices
+                z++;
+                nz++;
+                continue;
+            }
         }
     }
-}
-
-// Function to print the elements of a vector
-void printVector(vector<int> &nums)
-{
-    for (auto i : nums)
-    {
-        cout << i << " ";
-    }
-    cout << endl;
-}
-
-// Main function
-int main()
-{
-    // Example vector of integers
-    vector<int> nums = {0, 13, 0, 1, 0, 123441, 1, 1, 1, 0};
-
-    // Call the function to sort the array
-    sortOddAndEvens(nums);
-
-    // Print the sorted array
-    cout << "Sorted array is: " << endl;
-    printVector(nums);
-
-    return 0;
-}
+};

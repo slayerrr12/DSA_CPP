@@ -1,7 +1,7 @@
 # Ignore compiled executables
 */**/*.exe
 */**/*tempCodeRunnerFile.cpp
-test_file.cpp
+
 
 # Ignore temporary code runner files
 /.vscode/

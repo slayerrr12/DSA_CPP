@@ -1,39 +1,23 @@
-// difficulty Easy
-
 #include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cmath>
+#include <unordered_map>
 
-using namespace std;
+int main() {
+    std::unordered_map<char, int> unorderedMap;
 
-int main()
-{
+    // Insert elements into the unordered_map
+    unorderedMap['c'] = 3;
+    unorderedMap['a'] = 1;
+    unorderedMap['b'] = 2;
+    unorderedMap['d'] = 1;
+    unorderedMap['q'] = 3;
+    unorderedMap['g'] = 1;
+    unorderedMap['f'] = 2;
+    unorderedMap['l'] = 1;
 
-    int n = 12;
-    int n1 = 12 ;
-    int ans = 0;
-    int count = 0;
-    int ith_bit = 0;
-    int j = 0;
-    for (int i = 31; i > -1; i--)
-
-    {
-        ith_bit = n & (1 << i);
-        if (ith_bit == 0)
-        {
-            continue;
-        }
-        else
-        {
-            j = 32 - i;
-            ans += pow(2, j);
-            
-        }
-
+    // Iterate through the unordered_map to observe the order
+    for (const auto& pair : unorderedMap) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
     }
-    cout << ans << endl;
 
     return 0;
 }
-

@@ -2,16 +2,19 @@
 
 using namespace std;
 
-/**
-    * Concatenates the given vector with itself.
-    * 
-    * @param nums The vector to be concatenated.
-    * @return The concatenated vector.
-    */
 class Solution
 {
 public:
     vector<int> getConcatenation(vector<int> &nums)
     {
+
+        int n =  nums.size();
+        for (int  i = 0; i < n; i++)
+        {
+            nums.push_back(nums[i]);
+        }
+
+        return nums;
+        
     }
 };

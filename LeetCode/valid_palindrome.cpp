@@ -10,19 +10,53 @@ public:
     bool isPalindrome(string s)
     {
 
-        int i = 0;
-        int j = s.size() - 1;
+        int a = 0;
+        int b = s.size() - 1;
+
+        if (s.size()==1)
+        {
+            return true;
+        }
+        
+        
+        
+
+
         for (char &c : s)
         {
+            if (!isalnum(c))
+            {
+                c = ' ';
+            }
+             if (c == ' ')
+            {
+                continue;
+            }
+
             c = tolower(c);
         }
 
-        for (int i = 0; i < j / 2; i++)
+        while (a <= b)
         {
-            if (!(s[i] == s[j]))
+            if (!isalnum(s[a]))
             {
-                return false;
+                a++;
+                continue;
             }
+
+            if (!isalnum(s[b]))
+            {
+                b--;
+                continue;
+            }
+
+            if ((s[a] != s[b]))
+            {
+
+                return false;
+                        }
+            a++;
+            b--;
         }
 
         return true;

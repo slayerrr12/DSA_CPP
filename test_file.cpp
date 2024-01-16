@@ -1,23 +1,17 @@
 #include <iostream>
-#include <unordered_map>
+#include <string>
 
 int main() {
-    std::unordered_map<char, int> unorderedMap;
+    std::string str = "Hello, World!";
+    std::cout << "length before " << str.length() << std::endl; 
+    // Erase 7 characters starting from position 7
+    str.erase(7, 7);
+    std::cout << str << std::endl;  // Output: Hello!
 
-    // Insert elements into the unordered_map
-    unorderedMap['c'] = 3;
-    unorderedMap['a'] = 1;
-    unorderedMap['b'] = 2;
-    unorderedMap['d'] = 1;
-    unorderedMap['q'] = 3;
-    unorderedMap['g'] = 1;
-    unorderedMap['f'] = 2;
-    unorderedMap['l'] = 1;
-
-    // Iterate through the unordered_map to observe the order
-    for (const auto& pair : unorderedMap) {
-        std::cout << pair.first << ": " << pair.second << std::endl;
-    }
+    // Erase all characters from position 7 to the end
+    str.erase(3);
+    std::cout << str << std::endl;
+        std::cout << "length after " << str.length() << std::endl;   // Output: Hello
 
     return 0;
 }

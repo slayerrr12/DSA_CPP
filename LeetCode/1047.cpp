@@ -28,7 +28,7 @@ public:
         return;
     }
 
-    string removeDuplicates(string s)
+    string removeDuplicates(string s , k)
     {
         stack<char> a;
 

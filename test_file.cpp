@@ -1,17 +1,24 @@
 #include <iostream>
+#include <stack>
 #include <string>
 
 int main() {
-    std::string str = "Hello, World!";
-    std::cout << "length before " << str.length() << std::endl; 
-    // Erase 7 characters starting from position 7
-    str.erase(7, 7);
-    std::cout << str << std::endl;  // Output: Hello!
+    std::stack<char> charStack;
+    std::string originalOrderString;
 
-    // Erase all characters from position 7 to the end
-    str.erase(3);
-    std::cout << str << std::endl;
-        std::cout << "length after " << str.length() << std::endl;   // Output: Hello
+    // Push elements onto the stack
+    charStack.push('A');
+    charStack.push('B');
+    charStack.push('C');
 
-    return 0;
+    // Pop elements from the stack and append to the string
+    while (!charStack.empty()) {
+        originalOrderString = charStack.top() + originalOrderString;
+        charStack.pop();
+    }
+
+    // Output the string in the original order
+    return originalOrderString ;
+
+   
 }

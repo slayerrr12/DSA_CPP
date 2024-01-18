@@ -30,13 +30,13 @@ public:
             }
         }
 
-        if (n--)
+        while (n--)
         {
             ans.push_back(nums1[i]);
             i++;
         }
 
-        if (m--)
+        while(m--)
         {
             ans.push_back(nums1[j]);
             j++;
@@ -54,7 +54,14 @@ int main()
     vector<int> nums2 = {2, 5, 6};
     int n = 3;
 
-    ans  = 
+    Solution obj;
+
+    vector<int> ans = obj.merge(nums1, m, nums2, n);
+
+    for (int a : ans)
+    {
+        cout << a << endl;
+    }
 
     return 0;
 }

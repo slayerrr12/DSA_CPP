@@ -24,8 +24,23 @@ public:
         int i = j - k;
         int l = j - k;
 
-        while (j >= l)
+        while (j >= l && i >= 0)
         {
+            swap(nums[i], nums[j]);
+            i--;
+            j--;
+        }
+        for (auto i : nums)
+        {
+            cout << i << " ";
         }
     }
 };
+
+int main()
+{
+
+    vector<int> nums = {1, 2, 3, 4, 5, 6, 7};
+    int k = 3;
+    Solution obj;
+}

@@ -1,49 +1,18 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-
-class Solution
-{
+class Solution {
 public:
-    void swap(int &a, int &b)
-    {
-        int temp = a;
-        a = b;
-        b = temp;
-    }
+    void rotate(vector<int>& nums, int k) {
+       // Calculate the actual number of rotations needed
+    int n = nums.size();
+    k = k % n;
 
-    void rotate(vector<int> &nums, int k)
-    {
-        if (nums.size() < k)
+    // Reverse the entire array
+    reverse(nums.begin(),nums.begin()+n-k);
 
-        {
-            k = nums.size() - k % nums.size();
-        }
+    // Reverse the first k elements
+    reverse(nums.begin()+n-k,nums.end());
 
-        int j = nums.size();
-        int i = j - k;
-        int l = j - k;
-
-        while (j >= l && i >= 0)
-        {
-            swap(nums[i], nums[j]);
-            i--;
-            j--;
-        }
-        for (auto i : nums)
-        {
-            cout << i << " ";
-        }
+    // Reverse the remaining elements
+    reverse(nums.begin(),nums.end());
+     
     }
 };
-
-int main()
-{
-
-    vector<int> nums = {1, 2, 3, 4, 5, 6, 7};
-    int k = 3;
-    Solution obj;
-    obj.rotate(nums,k);
-
-    return 0;
-}

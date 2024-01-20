@@ -2,23 +2,24 @@
 #include <stack>
 #include <string>
 
+
+using namespace std ;
+
+
+
+
 int main() {
-    std::stack<char> charStack;
-    std::string originalOrderString;
 
-    // Push elements onto the stack
-    charStack.push('A');
-    charStack.push('B');
-    charStack.push('C');
+    int *ptr = NULL;
+    cout<<"value of p when pointed to null : "<<ptr<<endl;
 
-    // Pop elements from the stack and append to the string
-    while (!charStack.empty()) {
-        originalOrderString = charStack.top() + originalOrderString;
-        charStack.pop();
-    }
+    int a = 3;
+    ptr = &a;
+    cout<<"address of a  : "<<ptr<< " and the value at that address : "<< *ptr<< endl;
+   
 
-    // Output the string in the original order
-    return originalOrderString ;
 
+   
+    return 0;
    
 }

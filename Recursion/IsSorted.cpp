@@ -21,12 +21,10 @@ bool isSorted(float *arr, int n)
 int main()
 {
 
-    float arr[] = {1,2,3,4,5.999,6,7,8};
+    float arr[] = {1, 2, 3, 4, 5.999, 6, 7, 8};
     int n = 8;
 
-    cout<<isSorted(arr,n)<<endl;
-
-
+    cout << isSorted(arr, n) << endl;
 
     return 0;
 }

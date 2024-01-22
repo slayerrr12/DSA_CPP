@@ -1,33 +1,31 @@
-#include <iostream>
-#include <stack>
-#include <string>
-
-using namespace std;
-
-int main()
+class Solution
 {
 
-    int *ptr = NULL;
-    cout << "value of p when pointed to null : " << ptr << endl;
-    ptr = 0;
-    cout << "value of p when pointed to 0 : " << ptr << endl;
+public:
+    void swap(char &a, char &b)
+    {
 
-    int a = 3;
-    ptr = &a;
-    cout << "address of a  : " << ptr << " and the value at that address : " << *ptr << endl;
-    *(ptr + 1) = 34;
-    cout << " value of of ptr + 1 " << *(ptr + 1) << endl;
-    
+        char temp = a;
+        a = b;
+        b = temp;
+    }
 
-    return 0;
-}
+    void reverseString(vector<char> &s)
+    {
+        reverse(s);
 
-
-
-
-
-
-
-
-
-
+    }
+    void reverse(vector<char> arr, int i, int j)
+    {
+        if (i < j)
+        {
+            swap(arr[i], arr[j]);
+            reverse(arr, i + 1, j - 1);
+        }
+        else
+        {
+            return;
+        }
+        return;
+    }
+};

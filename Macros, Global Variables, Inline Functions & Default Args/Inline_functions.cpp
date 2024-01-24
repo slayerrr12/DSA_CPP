@@ -2,7 +2,7 @@
 
 using namespace std;
 
- inline int getmax(int a, int b)
+inline int getmax(int a, int b)
 {
 
     if (a > b)
@@ -18,7 +18,7 @@ using namespace std;
 int main()
 {
 
-    cout<<getmax(344, 13143);
+    cout << getmax(344, 13143);
 
     return 2;
 }

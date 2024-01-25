@@ -1,48 +1,49 @@
-
-#include <bits/stdc++.h>
-
-using namespace std;
-
-struct ListNode
-{
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
-
 class Solution
 {
 public:
     ListNode *reverseKGroup(ListNode *head, int k)
     {
-
-
-
-
-    }
-
-    ListNode *reverseList(ListNode *head , int k )
-    {
-        ListNode *prev;
-        ListNode *cur;
-        ListNode *forward;
-
-        forward = head->next;
-        cur = forward;
-        forward = forward->next;
-        prev = head;
-        prev->next = NULL;
-
-        while ((k--))
+        if (head == NULL)
         {
-           cur->next = prev ;
-           cur = forward;
-           forward = forward->next; 
+            return NULL;
         }
 
+        ListNode *next = NULL;
+        ListNode *curr = head;
+        ListNode *prev = NULL;
+        int count = 0;
 
-        
-    };
+        // Count the number of nodes remaining
+        ListNode *temp = head;
+        int remainingNodes = 0;
+        while (temp != NULL)
+        {
+            remainingNodes++;
+            temp = temp->next;
+        }
+
+        // Check if there are enough nodes to reverse in groups of k
+        if (remainingNodes < k)
+        {
+            return head;
+        }
+
+        // Reverse k nodes
+        while (curr != NULL && count < k)
+        {
+            next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
+            count++;
+        }
+
+        // Recursive call for the next group
+        if (next != NULL)
+        {
+            head->next = reverseKGroup(next, k);
+        }
+
+        return prev;
+    }
 };

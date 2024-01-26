@@ -13,7 +13,7 @@ public:
         ListNode *prev = NULL;
         int count = 0;
 
-        
+         
 
         // Reverse k nodes
         while (curr != NULL && count < 2)

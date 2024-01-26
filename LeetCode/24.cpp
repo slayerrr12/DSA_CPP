@@ -1,7 +1,7 @@
 class Solution
 {
 public:
-    ListNode *swapPairs(ListNode *head, )
+    ListNode *swapPairs(ListNode *head)
     {
         if (head == NULL)
         {
@@ -28,7 +28,7 @@ public:
         // Recursive call for the next group
         if (next != NULL)
         {
-            head->next = wapPairs(next, k);
+            head->next = swapPairs(next);
         }
 
         return prev;

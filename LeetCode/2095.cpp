@@ -20,7 +20,7 @@ public:
         ListNode *slow = head;
 
         ListNode *prev = head;
-        ListNode 
+        ListNode *next = NULL;
 
         int count = 0;
 
@@ -35,13 +35,13 @@ public:
             prev = prev->next;
         }
 
+        next = slow->next;
+
+        prev->next = (prev->next)->next;
+
+        slow->next = NULL;
         
 
 
-
-
-
-
-
-    }
+        }
 };

@@ -33,7 +33,7 @@ void generateAllSubsequences(char arr[]){
 
 int main(){
 	//Subsets / Subsequences	
-	char arr[10000];
+	char arr[3];
 	cin>> arr;
 	generateAllSubsequences(arr);
 

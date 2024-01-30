@@ -16,10 +16,14 @@ class Solution
 public:
     ListNode *deleteDuplicates(ListNode *head)
     {
+        if (head == NULL) {
+            return head;
+        }
+
         ListNode *i = head;
         ListNode *j = head->next;
 
-        while (i == NULL || j == NULL)
+        while (j != NULL)
         {
             if (i->val == j->val)
             {
@@ -32,8 +36,12 @@ public:
                 j = j->next;
             }
         }
+        return head;
     }
 };
+
+//time complexity is O(n)
+
 
 int main()
 {

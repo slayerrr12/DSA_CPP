@@ -1,70 +1,38 @@
 #include <iostream>
+#include <string>
 #include <cmath>
-#include <vector>
 
-using namespace std;
-
-struct ListNode
-{
-    int val;
-    ListNode *next;
-    ListNode(int x) : val(x), next(nullptr) {}
-};
-
-vector<int> getnumber(ListNode *l1, ListNode *l2)
-{
-    int num1 = 0;
-    int num2 = 0;
-    int count = 0;
-
-    while (l1 != nullptr)
-    {
-        num1 = pow(10, count) * l1->val + num1;
-        l1 = l1->next;
-        count++;
+// Function to convert a number from any base to decimal
+int anyBaseToDecimal(const std::string& number, int base) {
+    int decimalValue = 0;
+    int power = 0;
+    for (int i = number.length() - 1; i >= 0; --i) {
+        int digitValue;
+        if (isdigit(number[i])) {
+            digitValue = number[i] - '0';
+        } else {
+            digitValue = number[i] - 'A' + 10;
+        }
+        decimalValue += digitValue * pow(base, power);
+        power++;
     }
-
-    count = 0;
-    while (l2 != nullptr)
-    {
-        num2 = pow(10, count) * l2->val + num2; // Corrected l1 to l2 here
-        l2 = l2->next;
-        count++;
-    }
-
-    vector<int> ans = {num1, num2};
-
-    return ans; // Assuming you want to return an integer from this function
+    return decimalValue;
 }
 
-int main()
-{
-    // Create two linked lists
-    ListNode *l1 = new ListNode(5);
-    l1->next = new ListNode(4);
-    l1->next->next = new ListNode(3);
+int main() {
+    std::string number;
+    int base;
 
-    ListNode *l2 = new ListNode(5);
-    l2->next = new ListNode(6);
-    l2->next->next = new ListNode(4);
+    std::cout << "Enter the number: ";
+    std::cin >> number;
 
-    // Test the getnumber function
-    vector<int> ans = getnumber(l1,l2)
+    std::cout << "Enter the base of the number: ";
+    std::cin >> base;
 
-    // Clean up the allocated memory
-    while (l1 != nullptr)
-    {
-        ListNode *temp = l1;
-        l1 = l1->next;
-        delete temp;
-    }
+    int decimalValue = anyBaseToDecimal(number, base);
 
-    while (l2 != nullptr)
-    {
-        ListNode *temp = l2;
-        l2 = l2->next;
-        delete temp;
-    }
+    std::cout << "Decimal value: " << decimalValue << std::endl;
 
     return 0;
 }
+

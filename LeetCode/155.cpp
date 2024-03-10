@@ -60,7 +60,7 @@ public:
     void pop()
     {
         s.pop_back();
-    }git 
+    }
 
     int top() { return s.back().first; }
 
